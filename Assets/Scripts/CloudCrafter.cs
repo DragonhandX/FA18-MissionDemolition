@@ -10,7 +10,7 @@ public class CloudCrafter : MonoBehaviour {
 	public Vector3 cloudPosMax = new Vector3 (150, 100,10);
 	public float cloudScaleMin= 1;
 	public float cloudScaleMax= 3;
-		public float cloudSpeedMult = 0.5f;
+	public float cloudSpeedMult = 0.5f;
 	private GameObject[] cloudInstances;
 
 	void Awake(){
@@ -47,7 +47,7 @@ public class CloudCrafter : MonoBehaviour {
 		foreach (GameObject cloud in cloudInstances) {
 			float scaleVal = cloud.transform.localScale.x;
 			Vector3 cPos = cloud.transform.position;
-			cPos.x  = cPos.x + (scaleVal * Time.deltaTime *cloudSpeedMult);
+			cPos.x  -= scaleVal * Time.deltaTime *cloudSpeedMult;
 			if(cPos.x <= cloudPosMin.x) {
 				cPos.x = cloudPosMax.x; }
 			cloud.transform.position = cPos;

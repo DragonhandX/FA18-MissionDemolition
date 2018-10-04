@@ -20,7 +20,7 @@ public class Cloud : MonoBehaviour {
 	void Start () {
 		spheres = new List <GameObject> ();
 
-		int num = Random.Range (numSpheresMin, numSpheresMin);
+		int num = Random.Range (numSpheresMin, numSpheresMax);
 		for (int i=0; i<num; i++) {
 			GameObject sp = Instantiate<GameObject> (cloudSphere);
 			spheres.Add (sp);
@@ -46,15 +46,16 @@ public class Cloud : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	//	if (Input.GetKeyDown (KeyCode.Space)) {
+	//  	if (Input.GetKeyDown (KeyCode.Space)) {
 	//		Restart ();
 	//	}
 	}
-			void Restart () {
-				foreach (GameObject sp in spheres){
-					Destroy(sp);
-				}
+
+	void Restart () {
+		foreach (GameObject sp in spheres){
+			Destroy(sp);
+		}
 		Start();
 
-}
+    }
 }
